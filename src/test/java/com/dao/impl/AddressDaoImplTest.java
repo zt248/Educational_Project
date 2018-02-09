@@ -18,7 +18,6 @@ import java.util.List;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = ApplicationConfig.class)
 @TransactionConfiguration(defaultRollback = true)
-@Transactional
 public class AddressDaoImplTest {
 
     @Autowired

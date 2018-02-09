@@ -18,7 +18,6 @@ import java.util.List;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = ApplicationConfig.class)
 @TransactionConfiguration(defaultRollback = true)
-@Transactional
 public class DepartmentDaoImplTest {
 
 
@@ -28,7 +27,7 @@ public class DepartmentDaoImplTest {
 
     @Test
     public void add() throws DaoException {
-        Department department = new Department(null, "test");
+        Department department = new Department(null, "test3");
         departmentDao.add(department);
         Assert.assertEquals(departmentDao.getById(department.getId()).getId(), department.getId());
         Assert.assertEquals(departmentDao.getById(department.getId()).getPosition(), department.getPosition());

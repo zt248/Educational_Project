@@ -1,4 +1,4 @@
-<%@ taglib prefix="form" uri="http://java.sun.com/jsp/jstl/core" %>
+<%--<%@ taglib prefix="form" uri="http://java.sun.com/jsp/jstl/core" %>--%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -33,7 +33,7 @@
                 ${department.position}<br/>
             </c:forEach>
         </td>
-        <td>Query</td>
+        <td><a href="<c:url value="/employee/getByIdEmployee/${employees.id}"/> "><button>Query</button></a> </td>
         <td><a href="<c:url value="/employees/update/${employees.id}"/> "><button>Редакрировать</button></a> </td>
         <td><a class="deleteButton" href="<c:url value="/employees/delete/${employees.id}" /> ">
             <button>Удалить</button>
@@ -46,6 +46,11 @@
 <a href="<c:url value="/employees/newEmployees" /> ">
     <button>Новая запись</button>
 </a>
+<div>
+    <a href="<c:url value="/menu" /> ">
+        <button>Назад в меню</button>
+    </a>
+</div>
 </thead>
 
 </body>

@@ -37,6 +37,14 @@ public class EmployeesController {
     }
 
 
+
+    //Чтение записи по ID
+    @RequestMapping(value = "/employee/getByIdEmployee/{id}")
+    public String getByIdEmployee (@PathVariable("id") Long id, Model model) throws DaoException{
+        model.addAttribute("employee", employeeDAO.getById(id));
+        return "views/employee/getByIdEmployee";
+    }
+
     //Добаление записи
     @RequestMapping(value = "/employees/newEmployees")
     public ModelAndView newEmployees() {
@@ -95,34 +103,7 @@ public class EmployeesController {
         return "views/employee/updateEmployee";
     }
 
-    //Обновить запись
-//    @RequestMapping(value = "/employees/employeesUpdate")
-//    public String employeesUpdate(@ModelAttribute("employees") Employee employee, @ModelAttribute("departments") Set<Department> departments) throws DaoException {
 
-
-//        Employee employee = new Employee();
-//        Address address = new Address();
-//        employee.setFirstName(request.getParameter("firstName"));
-//        employee.setLastName(request.getParameter("lastName"));
-//        address.setCountry(request.getParameter("country"));
-//        address.setCity(request.getParameter("city"));
-//        address.setStreet(request.getParameter("street"));
-//        address.setPostCode(request.getParameter("postCode"));
-//        employee.setAddress(address);
-//        String[] depIds = request.getParameterValues("departments");
-//        if (depIds != null) {
-//            Set<Department> departments = new HashSet<>();
-//            for (String id : depIds) {
-//                departments.add(departmentDAO.getById(Long.valueOf(id)));
-//            }
-//            employee.setDepartments(departments);
-//        }
-
-    //        employee.setDepartments(departments);
-//        employeeDAO.update(employee);
-//        return "redirect:/employee/getEmployeesList";
-//    }
-//
     @RequestMapping(value = "/employees/employeesUpdate", method = RequestMethod.POST)
     public String employeesUpdate(UpdateEmployeesForm updateEmployeesForm) throws DaoException {
         Employee employee = employeeDAO.getById(Long.valueOf(updateEmployeesForm.getId()));

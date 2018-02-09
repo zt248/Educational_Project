@@ -10,10 +10,10 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
-//@EnableWebMvc  //<mvc:annotation-driven>
-//@Configuration
-//@ComponentScan(basePackages = {"com"}) //<context:component-scan base-package=''>
-//@EnableTransactionManagement
+@EnableWebMvc  //<mvc:annotation-driven>
+@Configuration
+@ComponentScan(basePackages = {"com"}) //<context:component-scan base-package=''>
+@EnableTransactionManagement
 public class MVCConfig  extends WebMvcConfigurerAdapter{
 
     /**
